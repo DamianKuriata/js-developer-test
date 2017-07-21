@@ -1,0 +1,172 @@
+{
+  "header": {
+    "title": "Sponge Development Test",
+    "subtitle": "May the force be with you",
+    "myname": "&lt;insert name here&gt;"
+  },
+  "content": {
+    "title": "Welcome!",
+    "body": "<p>Please carefully read the instructions on the right and work through as many of the tasks as you can.</p><p>For this test, you will need:</p><ul><li>An IDE of your choice (e.g. Sublime Text)</li><li>A copy of Microsoft Word (for opening the example text - you may be able to use Google Docs instead)</li></ul><p>Links to any documentation you may need are in the footer of this page.</p><p><em><strong>It is always better to submit something broken than nothing at all.</strong> Document any issues you had and include them in your submission.</em></p>",
+    "task": {
+      "markup": "<div id=\"boxes\" style=\"background-color: #7B0051;\"><div id=\"box-right\" style=\"background-color: #FC6E8D;\"></div><div id=\"box-left\" style=\"background-color: #FFB400;\"></div></div>",
+      "references": {
+        "images": [
+          {
+            "width": 1220,
+            "image": "./resources/box-reference-full.png"
+          },
+          {
+            "width": 768,
+            "image": "./resources/box-reference-768.png"
+          },
+          {
+            "width": 767,
+            "image": "./resources/box-reference-767.png"
+          },
+          {
+            "width": 400,
+            "image": "./resources/box-reference-400.png"
+          }
+        ],
+        "video": "./resources/box-reference-responsive.mp4"
+      }
+    }
+  },
+  "tasks": {
+    "test": [
+      {
+        "title": "Before you start",
+        "tasks": [
+          {
+            "title": "Submitting your test",
+            "description": "<p>If you have experience with, or are able to use Git, create your repository now, initialise this folder and push up your first commit.</p><p>Submitting your test via a GitHub or Bitbucket repository is preferred, but if you are unsure then simply ZIP up this folder once you are done and send it by email.</p>",
+            "instruction": "Try to make a commit after each task."
+          }
+        ]
+      },
+      {
+        "title": "Basic tasks",
+        "tasks": [
+          {
+            "title": "Your name",
+            "description": "<p>After familiarising yourself with the code used in this test, add your name to the header of this page using the <code>app/data/content.json</code> file.</p>",
+            "stars": 1
+          },
+          {
+            "title": "Edit content",
+            "description": "<p>Change the title in the header to:</p><p><code><em>Sponge UK</em> Developer Test</code></p>",
+            "instruction": "Pay close attention to the italicised text.",
+            "stars": 1
+          },
+          {
+            "title": "Replace content",
+            "description": "<p>Replace the main content of this page (the &quot;content&quot; property of <code>app/data/content.json</code>) with the text found in <code>resources/text-from-client.docx</code>.</p>",
+            "instruction": "Pay close attention to any formatting and structure and try to normalise the styles. Correct any mistakes as you see fit.",
+            "stars": 2
+          },
+          {
+            "title": "Add content",
+            "description": "<p>Before the <code>#content</code> block, add either an accordion or tabs element without using a pre-written plugin or library and add the sections:</p><ol><li><strong>About me:</strong> A short paragraph about yourself</li><li><strong>Photo:</strong> A photo or avatar of yourself</li><li><strong>Links:</strong> Links to any sites that you have worked on or are particularly proud of with a small description of the role you played in their creation</li></ol>",
+            "stars": 2
+          },
+          {
+            "title": "Modify your new content",
+            "description": "<p>Update your element from the previous task to use a Handlebars template be populated from content that you add to the <code>app/data/content.json</code> file.</p>",
+            "stars": 2
+          }
+        ]
+      },
+      {
+        "title": "Advanced tasks",
+        "tasks": [
+          {
+            "title": "Simplify JavaScript",
+            "description": "<p>Simplify the JS in <code>app/js/spongetest.js</code>, making reusable functions. If you feel confident that the code is reusable enough, you can try moving the necessary content population code to the <code>ContentInstance</code> object in the <code>app/js/lib/content.js</code> file instead.</p>",
+            "instruction": "Include error handling to ensure the functions run even when passed invalid parameters.",
+            "stars": 3
+          },
+          {
+            "title": "Convert the CSS to LESS or SASS",
+            "description": "<p>Take the CSS in the file <code>app/css/spongetest.css</code> and convert it to LESS or SASS.</p><p>Use variables for any colours so that they may be changed easily.</p>",
+            "instruction": "Don't forget to submit your raw <code>.sass</code> or <code>.less</code> file(s).",
+            "stars": 3
+          },
+          {
+            "title": "CSS boxes",
+            "description": "<p>Without changing the HTML, use CSS to style the <code>#boxes</code> element to match the reference images as closely as possible.</p><p>In Chrome's Developer Tools, you can <a href=\"https://developers.google.com/web/tools/chrome-devtools/device-mode/emulate-mobile-viewports\" target=\"_blank\">change your viewport</a> to match exact screen widths given in the reference images.</p><p>The specifications for the boxes are as follows:</p><ul><li><strong>Don't</strong> change the padding on the <code>#boxes</code> element</li><li><strong>Don't</strong> overwrite the background colours</li><li>The right (pink) box should <strong>always remain square</strong> and be <strong>50% of the remaining width</strong> of the <code>#boxes</code> element</li><li>The left (yellow) box should be <strong>50px high</strong> and <strong>210px wide</strong> (but <strong>no wider than 50% of the remaining width</strong> of the <code>#boxes</code> element)</li><li>The font size for the text is <strong>1.5em</strong></li><li>The solution should work in all modern browsers and as far back as IE9</li></ul>",
+            "instruction": "Tip: Use pseudo elements&hellip;",
+            "stars": 4
+          },
+          {
+            "title": "Task runner",
+            "description": "<p>Install and configure a Node task runner such as Gulp or Grunt and configure it to build your SASS or LESS files into <code>.css</code> files. Make a module with a <code>package.json</code> file and include your dependencies in there.",
+            "instruction": "Please submit your <code>package.json</code> file so that we can install your environment but don't submit the <code>node_modules</code> folder &mdash; because it will be huge! Add the <code>node_modules</code> folder to the <code>.gitignore</code> list.",
+            "stars": 4
+          }
+        ]
+      },
+      {
+        "title": "Extra credit",
+        "tasks": [
+          {
+            "title": "Rewrite JavaScript",
+            "description": "<p>Rewrite <code>app/js/lib/content.js</code>, making it into an ES6 class.</p><p>Use the <code>import</code> statement to include the <code>ContentInstance</code> class from <code>app/js/lib/content.js</code> into <code>app/js/spongetest.js</code></p>",
+            "instruction": "This will currently only work in the latest Chrome, Firefox, Edge, Safari and Opera &mdash; this is fine.",
+            "stars": 4
+          },
+          {
+            "title": "Responsive font size",
+            "description": "<p>Using the <strong>least amount of CSS possible</strong> and leveraging the existing font-size inheritance, increase the size of the font throughout the entire page to 125% of its current size when viewing the page in a window smaller than 500px wide.</p>",
+            "stars": 4
+          },
+          {
+            "title": "Transpile JavaScript",
+            "description": "<p>Using a compiler such as <a href=\"https://babeljs.io/\" target=\"_blank\">Babel</a> and your task runner from earlier on, make a task that transpiles the ES6 code from the &quot;Rewrite JavaScript&quot; task into ES5/ES2015.</p>",
+            "instruction": "Remember to submit your <code>gulpfile.js</code> or <code>gruntfile.js</code> as well as your <code>package.json</code>.",
+            "stars": 5
+          }
+        ]
+      }
+    ]
+  },
+  "docs": {
+    "links": [
+      {
+        "title": "GitHub",
+        "url": "https://github.com/"
+      },
+      {
+        "title": "Bitbucket",
+        "url": "https://bitbucket.org/"
+      },
+      {
+        "title": "jQuery",
+        "url": "https://jquery.com/"
+      },
+      {
+        "title": "Handlebars",
+        "url": "http://handlebarsjs.com/"
+      },
+      {
+        "title": "Node",
+        "url": "https://nodejs.org/en/"
+      },
+      {
+        "title": "Gulp",
+        "url": "http://gulpjs.com/"
+      },
+      {
+        "title": "Grunt",
+        "url": "http://gruntjs.com/"
+      },
+      {
+        "title": "SASS",
+        "url": "http://sass-lang.com/"
+      },
+      {
+        "title": "LESS",
+        "url": "http://lesscss.org/"
+      }
+    ]
+  }
+}

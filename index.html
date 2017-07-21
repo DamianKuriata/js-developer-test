@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Sponge UK Developer Test</title>
+
+  <link rel="shortcut icon" href="app/images/favicon.ico">
+  <link rel="icon" href="app/images/favicon.ico" type="image/x-icon">
+
+  <!-- CSS boilerplate -->
+  <link href="vendor/arable.min.css" rel="stylesheet">
+
+  <!-- CSS grid system -->
+  <link href="vendor/unsemantic-grid-responsive-no-ie7.css" rel="stylesheet">
+
+  <!-- Icons -->
+  <link href="vendor/font-awesome.min.css" rel="stylesheet">
+
+  <!-- The CSS for this page -->
+  <link href="app/css/spongetest.css" rel="stylesheet">
+</head>
+<body>
+<div id="header-wrapper">
+  <header id="header" class="grid-container"></header>
+</div>
+<div class="grid-container">
+  <section class="grid-50">
+    <!-- INSERT YOUR "ABOUT ME" SECTION HERE -->
+    <article id="content"></article>
+    <noscript>
+      <h1>You must enable JavaScript in order to view this page.</h1>
+    </noscript>
+  </section>
+  <aside id="tasks" class="grid-45 prefix-5"></aside>
+</div>
+<div id="footer-wrapper">
+  <footer id="footer" class="grid-container">
+    <div class="grid-100">
+      <ul id="documentation" class="inline">
+        <li><strong>Documentation:</strong></li>
+      </ul>
+    </div>
+  </footer>
+</div>
+
+<!-- Header Handlebars template -->
+<script id="header-template" type="text/x-handlebars-template">
+  <div class="grid-60">
+    <h1 class="no-top-padding no-bottom-padding">{{title}}</h1>
+    <p>{{subtitle}}</p>
+  </div>
+  <div class="grid-40 align-right">
+    <p><em>Hello, my name is<br></em><strong>{{{myname}}}</strong></p>
+  </div>
+</script>
+
+<!-- Task item Handlebars template -->
+<script id="task-template" type="text/x-handlebars-template">
+  {{#each test}}
+  <h4 class="no-bottom-padding">{{title}}</h4>
+  {{#each tasks}}
+  <article>
+    <h5 class="no-bottom-padding">{{#if stars}}<span class="difficulty">{{{difficulty stars}}}</span>{{/if}}{{title}}</h5>
+    {{{description}}} {{#if instruction}}
+    <p><em>{{{instruction}}}</em></p>
+    {{/if}}
+  </article>
+  {{/each}} {{/each}}
+</script>
+
+<!-- Main content Handlebars template -->
+<script id="content-template" type="text/x-handlebars-template">
+  <h2>{{title}}</h2>
+  {{{body}}}
+  {{#with task}}
+    <h3>Boxes test</h3>
+    {{{markup}}}
+    <h4>Boxes test references</h4>
+    {{#with references}}
+      <ul>
+        {{#each images}}
+        <li><a href="{{image}}" target="_blank" title="Reference image at {{width}}px">Reference image of <code>#boxes</code> at browser width {{width}}px</a></li>
+        {{/each}}
+        <li><a href="{{video}}" target="_blank" title="Reference video">Reference video of <code>#boxes</code> (excluding all other page elements)</a></li>
+      </ul>
+    {{/with}}
+  {{/with}}
+</script>
+
+<!-- Documentation link Handlebars template -->
+<script id="documentation-template" type="text/x-handlebars-template">
+  {{#each links}}
+  <li><a href="{{url}}" target="_blank" title="{{title}} docs">{{title}}</a></li>
+  {{/each}}
+</script>
+
+<!-- jQuery -->
+<script src="vendor/jquery-1.12.4.min.js"></script>
+
+<!-- Handlebars -->
+<script src="vendor/handlebars-v4.0.5.js"></script>
+
+<!-- Simple JSON Content Parser -->
+<script src="app/js/lib/content.js"></script>
+
+<!-- The JS for this page -->
+<script src="app/js/spongetest.js"></script>
+
+<!--
+  =====================================================
+
+     _____                                _    _ _  __
+    / ____|                              | |  | | |/ /
+   | (___  _ __   ___  _ __   __ _  ___  | |  | | ' /
+    \___ \| '_ \ / _ \| '_ \ / _` |/ _ \ | |  | |  <
+    ____) | |_) | (_) | | | | (_| |  __/ | |__| | . \
+   |_____/| .__/ \___/|_| |_|\__, |\___|  \____/|_|\_\
+          | |                 __/ |
+          |_|                |___/
+
+  =====================================================
+-->
+</body>
+</html>
