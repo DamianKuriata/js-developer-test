@@ -168,5 +168,26 @@
         "url": "http://lesscss.org/"
       }
     ]
+  },
+  "about":{
+    "accordion": [
+      {
+        "title": "About Me",
+        "description": "<h5>Hello, I'm Damian.</h5><p>A few years ago, I came to England with ambitions of getting University Degree and becoming a web developer. After three years at University of Plymouth, I achieved BSc (Hons) degree in Computing and I will use my knowledge and willing to learn to become a successful web developer.</p>"
+      },
+      {
+        "title": "Photo",
+        "image": "./resources/damian-pic.jpg"
+      },
+      {
+        "title": "Links",
+        "links":[
+          {
+            "url": "https://rafal-test.000webhostapp.com/",
+            "description": "<p>This is the website I am currently doing for my client. Website is still not finished as I'm waiting for few important elements.<p>"
+          }
+        ]
+      }
+    ]
   }
 }

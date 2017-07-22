@@ -28,6 +28,7 @@
 <div class="grid-container">
   <section class="grid-50">
     <!-- INSERT YOUR "ABOUT ME" SECTION HERE -->
+    <article id="about"></article>
     <article id="content"></article>
     <noscript>
       <h1>You must enable JavaScript in order to view this page.</h1>
@@ -93,6 +94,31 @@
 <script id="documentation-template" type="text/x-handlebars-template">
   {{#each links}}
   <li><a href="{{url}}" target="_blank" title="{{title}} docs">{{title}}</a></li>
+  {{/each}}
+</script>
+
+<!-- About me Handlebars template -->
+<script id="about-template" type="text/x-handlebars-template">
+  {{#each accordion}}
+  <button class="accordion">{{title}}</button>
+    <div class="accordion-panel">
+
+      {{#if description}}
+        {{{description}}}
+      {{/if}}
+
+      {{#if image}}
+        <img src="{{image}}">
+      {{/if}}
+
+      {{#if links}}
+        {{#each links}}
+          <p>Url: <a href="{{url}}">{{url}}</a></p>
+          {{{description}}}
+        {{/each}}
+      {{/if}}
+
+    </div>
   {{/each}}
 </script>
 

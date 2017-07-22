@@ -67,6 +67,17 @@ jQuery(
 				$( '#documentation' ).append( strContentHTML );
 			};
 
+            /**
+			 *  Populate about me
+             */
+            var populateAboutMe = function() {
+				var strContentSource = $('#about-template').html(),
+					resContentTemplate = Handlebars.compile(strContentSource),
+                    strContentHTML = resContentTemplate(resContent.getItem('about'));
+
+				$('#about').append(strContentHTML);
+            };
+
 			/**
 			 * Register a Handlebars helper for the difficulty stars
 			 */
@@ -95,7 +106,21 @@ jQuery(
 						populateTasks();
 						populateContent();
 						populateDocumentation();
+						populateAboutMe();
 					}
 			);
+
+            /**
+			 * Attach on click event to accordion buttons
+             */
+			$(document).on('click','.accordion', function () {
+                var panel = $(this).next();
+                	displayState = panel.css('display');
+                $('.accordion-panel').slideUp(); // Hide all accordion panels
+				if(displayState !== 'block'){
+                    panel.slideDown();
+				}
+            });
+
 		}
 );
