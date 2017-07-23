@@ -48,7 +48,7 @@ jQuery(
                     "targetId": "#documentation"
                 },
                 {
-                    "templateId": "#about-template1",
+                    "templateId": "#about-template",
                     "contentTitle": "about",
                     "targetId": "#about"
                 }
