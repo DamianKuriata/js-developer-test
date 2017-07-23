@@ -59,6 +59,21 @@
 					return objContent[intItem];
 				};
 
+                /**
+				 * Populate the content
+                 */
+                this.populate = function ( templateId, contentTitle, targetId ) {
+                    var source = $( templateId ).html();
+                    if( !source ){
+                        console.warn('Template',templateId,'not found');
+                        return;
+                    }
+                    var template = Handlebars.compile( source ),
+						content = this.getItem( contentTitle );
+
+                    $( targetId ).html( template( content ) );
+                };
+
 				return this;
 			};
 

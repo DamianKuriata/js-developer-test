@@ -23,60 +23,36 @@ jQuery(
 			 */
 			var resContent = new Content( 'app/data/content.json' );
 
-			/**
-			 * Populate the header
-			 */
-			var populateHeader = function() {
-				var strHeaderSource = $( '#header-template' ).html(),
-						resHeaderTemplate = Handlebars.compile( strHeaderSource ),
-						strHeaderHTML = resHeaderTemplate( resContent.getItem( 'header' ) );
-
-				$( '#header' ).html( strHeaderHTML );
-			};
-
-			/**
-			 * Populate the tasks
-			 */
-			var populateTasks = function() {
-				var strTaskSource = $( '#task-template' ).html(),
-						resTasksTemplate = Handlebars.compile( strTaskSource ),
-						strTasksHTML = resTasksTemplate( resContent.getItem( 'tasks' ) );
-
-				$( '#tasks' ).append( strTasksHTML );
-			};
-
-			/**
-			 * Populate the content
-			 */
-			var populateContent = function() {
-				var strContentSource = $( '#content-template' ).html(),
-						resContentTemplate = Handlebars.compile( strContentSource ),
-						strContentHTML = resContentTemplate( resContent.getItem( 'content' ) );
-
-				$( '#content' ).append( strContentHTML );
-			};
-
-			/**
-			 * Populate the documentation links
-			 */
-			var populateDocumentation = function() {
-				var strContentSource = $( '#documentation-template' ).html(),
-						resContentTemplate = Handlebars.compile( strContentSource ),
-						strContentHTML = resContentTemplate( resContent.getItem( 'docs' ) );
-
-				$( '#documentation' ).append( strContentHTML );
-			};
-
             /**
-			 *  Populate about me
+			 *	Array of content to populate
              */
-            var populateAboutMe = function() {
-				var strContentSource = $('#about-template').html(),
-					resContentTemplate = Handlebars.compile(strContentSource),
-                    strContentHTML = resContentTemplate(resContent.getItem('about'));
-
-				$('#about').append(strContentHTML);
-            };
+			var contentToPopulate = [
+				{
+					"templateId": "#header-template",
+					"contentTitle": "header",
+					"targetId": "#header"
+				},
+				{
+					"templateId":"#task-template",
+					"contentTitle": "tasks",
+					"targetId": "#tasks"
+				},
+				{
+					"templateId": "#content-template",
+					"contentTitle": "content",
+					"targetId": "#content"
+				},
+                {
+                    "templateId": "#documentation-template",
+                    "contentTitle": "docs",
+                    "targetId": "#documentation"
+                },
+                {
+                    "templateId": "#about-template1",
+                    "contentTitle": "about",
+                    "targetId": "#about"
+                }
+			];
 
 			/**
 			 * Register a Handlebars helper for the difficulty stars
@@ -85,13 +61,9 @@ jQuery(
 					function( intStars ) {
 						var strHTMLStarsOut = '';
 
-						for( var intStar = 0; intStar < intStars; intStar++ ) {
-							strHTMLStarsOut += '<i class="fa fa-star"></i>';
-						}
+						strHTMLStarsOut += '<i class="fa fa-star"></i>'.repeat( intStars );
 
-						for( var intBlankStar = intStars; intBlankStar < 5; intBlankStar++ ) {
-							strHTMLStarsOut += '<i class="fa fa-star-o"></i>';
-						}
+						strHTMLStarsOut += '<i class="fa fa-star-o"></i>'.repeat( 5 - intStars );
 
 						return strHTMLStarsOut;
 					}
@@ -102,11 +74,15 @@ jQuery(
 			 */
 			resContent.onReady(
 					function() {
-						populateHeader();
-						populateTasks();
-						populateContent();
-						populateDocumentation();
-						populateAboutMe();
+
+                        /**
+						 *  Populate each content from array
+                         */
+                        $.each( contentToPopulate,
+								function (elIndex, element) {
+                                    resContent.populate(element.templateId,  element.contentTitle, element.targetId);
+                        		}
+                        );
 					}
 			);
 
