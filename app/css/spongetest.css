@@ -190,17 +190,57 @@ strong {
 /**
  * Styles to make the boxes actually visible to start
  */
+
+/*Not working in IE.*/
 #boxes {
   padding: 40px;
+  font-size: 1.5em;
+  color: white;
+  text-align: center;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+}
+#boxes:after{
+  content: 'Wrapper';
+  position: absolute;
+  right: 0;
+  bottom: -35px;
+  background: inherit;
+  padding: 10px 20px;
 }
 
 #box-left {
   height: 50px;
+  max-width: 50%;
+  width: 210px;
+  order: 1;
+}
+#box-left:before{
+  content: 'Left';
+  display: block;
+  height: 100%;
+  top: 50%;
+  position: relative;
+  line-height: 0;
+}
+#box-right {
+  width: 50%;
+  order: 2;
+}
+#box-right:before{
+  content: 'Right';
+  display: block;
+  padding-top: 100%;
+  transform: translateY(-50%);
+  line-height: 0;
 }
 
-#box-right {
-  height: 50px;
-}
+
+
+
+
 
 /**
  * Accordion style

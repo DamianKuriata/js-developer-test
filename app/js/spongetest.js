@@ -18,6 +18,7 @@
 
 jQuery(
 		function( $ ) {
+
 			/**
 			 * A new instance of the content parser using the content JSON file
 			 */
@@ -48,7 +49,7 @@ jQuery(
                     "targetId": "#documentation"
                 },
                 {
-                    "templateId": "#about-template",
+                    "templateId": "#about-template1",
                     "contentTitle": "about",
                     "targetId": "#about"
                 }
@@ -61,10 +62,15 @@ jQuery(
 					function( intStars ) {
 						var strHTMLStarsOut = '';
 
-						strHTMLStarsOut += '<i class="fa fa-star"></i>'.repeat( intStars );
+                        // strHTMLStarsOut += '<i class="fa fa-star"></i>'.repeat( intStars ); // Not working in IE 9
 
-						strHTMLStarsOut += '<i class="fa fa-star-o"></i>'.repeat( 5 - intStars );
+                        for( var intStar = 0; intStar < intStars; intStar++ ) {
+                            strHTMLStarsOut += '<i class="fa fa-star"></i>';
+                        }
 
+                        for( var intBlankStar = intStars; intBlankStar < 5; intBlankStar++ ) {
+                            strHTMLStarsOut += '<i class="fa fa-star-o"></i>';
+                        }
 						return strHTMLStarsOut;
 					}
 			);
