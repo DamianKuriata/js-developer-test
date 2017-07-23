@@ -1,4 +1,4 @@
-@CHARSET "UTF-8"
+@charset "UTF-8" //charset will be included in css if there are any non-ASCII characters
 @import url("https://fonts.googleapis.com/css?family=Roboto+Mono:300|Roboto:300,300i,500,500i")
 
 /*
@@ -153,12 +153,46 @@ strong
  */
 #boxes 
   padding: 40px
+  font-size: 1.5em
+  color: $color-white
+  text-align: center
+  position: relative
+  display: flex
+  align-items: center
+  justify-content: space-between
+
+  &:after
+    content: 'Wrapper'
+    position: absolute
+    right: 0
+    bottom: -35px
+    background: inherit
+    padding: 10px 20px
 
 #box-left 
   height: 50px
+  max-width: 50%
+  width: 210px
+  order: 1
+
+  &:before
+    content: 'Left'
+    display: block
+    height: 100%
+    top: 50%
+    position: relative
+    line-height: 0
 
 #box-right 
-  height: 50px
+  width: 50%
+  order: 2
+
+  &:before
+    content: 'Right'
+    display: block
+    padding-top: 100%
+    transform: translateY(-50%)
+    line-height: 0
 
 /**
  * Accordion style
