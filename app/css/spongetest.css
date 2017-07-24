@@ -192,3 +192,7 @@ strong {
     background: #FFF; }
     #about .accordion-panel img {
       width: 100%; }
+
+@media (max-width: 500px) {
+  body {
+    font-size: 1.25em; } }
