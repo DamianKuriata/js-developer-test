@@ -1,3 +1,8 @@
+/**
+ * ContentInstance class should be included with import statement but it didn't work
+ * All browsers displayed error about wrong syntax
+ */
+//import ContentInstance from 'content-es6';
 /*
  =====================================================
 
